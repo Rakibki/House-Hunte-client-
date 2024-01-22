@@ -4,8 +4,12 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 
 import { CiLock } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import UploadeImage from "../../utils/UploadeImage";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
 
 const Register = () => {
+  const axiosLocal = useAxiosLocal()
+
   const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -13,8 +17,12 @@ const Register = () => {
     const password = e.target.password.value;
     const phone = e.target.phone.value;
     const role = e.target.role.value;
+    const imageFile = e.target.image.files[0];
+    const image = await UploadeImage(imageFile)
+    const user = {name, email, phone, password, role, image}
 
-    console.log({ name, email, password, phone, role });
+    const res = await axiosLocal.post("/register", user)
+    console.log(res);
   };
 
   return (
@@ -72,6 +80,14 @@ const Register = () => {
               <option value="House Renter">House Renter</option>
             </select>
             <CiLock className="absolute text-xl left-3 text-white top-[30%]" />
+          </div>
+
+          <div className="mt-2">
+            <input
+              type="file"
+              name="image"
+              className="file-input file-input-bordered w-full max-w-xs"
+            />
           </div>
 
           <div className="mt-3 mb-4">

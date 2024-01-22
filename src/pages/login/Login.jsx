@@ -1,10 +1,17 @@
 import { MdOutlineMail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
 
 const Login = () => {
-  const handleLogin = async () => {
-    alert("clicj");
+  const axiosLocal = useAxiosLocal();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const res = await axiosLocal.post("/login", { email, password });
+    console.log(res);
   };
 
   return (
