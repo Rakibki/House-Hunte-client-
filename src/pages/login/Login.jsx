@@ -1,29 +1,11 @@
 import { MdOutlineMail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import SocailLogin from "../../components/socailLogin/SocailLogin";
-import { useContext, useState } from "react";
-import { authContext } from "../../providers/AuthProvaider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const {loginUser} = useContext(authContext)
-  const navigate = useNavigate()
-  const [error, setError] = useState(null)
-  const location = useLocation();
-
-  const handleLogin = async (e) => {    
-    e.preventDefault();
-    setError(null)
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    loginUser(email, password)
-    .then(() => {
-      return navigate(location?.state ? location.state : "/")
-    })
-    .catch((e) => {
-      setError(e.message)
-    })
-  }
+  const handleLogin = async () => {
+    alert("clicj");
+  };
 
   return (
     <div className="my-10">
@@ -52,8 +34,13 @@ const Login = () => {
           </div>
 
           <div className="mt-3 mb-4">
-            <p className="font-Poppins mb-2 font-medium text-red-700">{error}</p>
-            <button type="submit" className="py-3 hover:bg-[#6fdcdf] hover:text-white transition-all bg-white text-black font-Poppins font-semibold w-full">
+            <p className="font-Poppins mb-2 font-medium text-red-700">
+              this ih my error
+            </p>
+            <button
+              type="submit"
+              className="py-3 hover:bg-[#6fdcdf] hover:text-white transition-all bg-white text-black font-Poppins font-semibold w-full"
+            >
               LOGIN NOW
             </button>
           </div>
@@ -64,7 +51,6 @@ const Login = () => {
             </Link>
           </h1>
         </form>
-        <SocailLogin />
       </div>
     </div>
   );
