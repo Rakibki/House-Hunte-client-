@@ -1,12 +1,20 @@
 import { MdOutlineMail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
+import { IoPhonePortraitOutline } from "react-icons/io5";
 
 import { CiLock } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  const handleRegister = async () => {
-    alert("clicj");
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const phone = e.target.phone.value;
+    const role = e.target.role.value;
+
+    console.log({ name, email, password, phone, role });
   };
 
   return (
@@ -42,6 +50,27 @@ const Register = () => {
               className="bg-[#6fdcdf] w-full text-white placeholder:text-white py-3 pl-10 pr-6 text-lg outline-none"
               placeholder="Password"
             />
+            <CiLock className="absolute text-xl left-3 text-white top-[30%]" />
+          </div>
+
+          <div className="relative mt-3">
+            <input
+              type="number"
+              name="phone"
+              className="bg-[#6fdcdf] w-full text-white placeholder:text-white py-3 pl-10 pr-6 text-lg outline-none"
+              placeholder="Enter phone Number"
+            />
+            <IoPhonePortraitOutline className="absolute text-xl left-3 text-white top-[30%]" />
+          </div>
+
+          <div className="relative mt-3">
+            <select
+              name="role"
+              className="bg-[#6fdcdf] w-full text-white placeholder:text-white py-3 pl-10 pr-6 text-lg outline-none"
+            >
+              <option value="House Owne">House Owne</option>
+              <option value="House Renter">House Renter</option>
+            </select>
             <CiLock className="absolute text-xl left-3 text-white top-[30%]" />
           </div>
 

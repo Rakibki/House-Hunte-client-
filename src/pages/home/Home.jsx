@@ -1,8 +1,15 @@
+import About from "./About";
+import Banner from "./Banner";
+import Houses from "./Houses";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <Banner />
+      <Houses />
+      <About />
+    </div>
+  );
+};
 
-export default Home
+export default Home;

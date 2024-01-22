@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
 
 const Navber = () => {
   const navItems = (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-5 text-lg font-medium">
       <li>
         <NavLink>Home</NavLink>
       </li>
@@ -13,7 +14,7 @@ const Navber = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar py-6 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,10 +40,12 @@ const Navber = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className="btn w-48">
+          <img className="w-full" src={logo} alt="" />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navItems}</ul>
+        <ul className="px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>
