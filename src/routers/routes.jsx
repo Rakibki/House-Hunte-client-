@@ -6,6 +6,8 @@ import MainLeayout from "../layout/MainLeayout";
 import DashboardLaiout from "../layout/DashboardLaiout";
 import ListedHouses from "../pages/dashboard/houseOwner/listedHouses/ListedHouses";
 import Bookings from "../pages/dashboard/houseOwner/bookings/Bookings";
+import MyBookings from "../pages/dashboard/houseRenter/myBookings/MyBookings";
+import HouseDetails from "../components/houseDetails/HouseDetails";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/house/:id",
+        element: <HouseDetails />,
       },
       {
         path: "/login",
@@ -37,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "bookings",
         element: <Bookings />,
+      },
+      {
+        path: "myBookings",
+        element: <MyBookings />,
       },
     ],
   },
