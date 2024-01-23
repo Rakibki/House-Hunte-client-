@@ -1,19 +1,27 @@
-import { useEffect, useState } from "react";
 import Title from "../../shared/title/Title";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import House from "../../components/house/House";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
+import Loader from "../../components/loader/Loader";
 
 const Houses = () => {
-  const [houses, setHouses] = useState([]);
+  const axiosLocal = useAxiosLocal();
 
-  useEffect(() => {
-    fetch("./houses.json")
-      .then((res) => res.json())
-      .then((data) => setHouses(data));
-  }, []);
+  const { isPending, data: houses } = useQuery({
+    queryKey: ["houses"],
+    queryFn: async () => {
+      const res = await axiosLocal.get("/houses");
+      return res.data;
+    },
+  });
+
+  if (isPending) {
+    return <Loader />;
+  }
 
   return (
     <div className="my-10">

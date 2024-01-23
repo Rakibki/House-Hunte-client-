@@ -1,8 +1,8 @@
-import useAxiosLocal from "../hooks/useAxiosLocal";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 const UploadeImage = async (photo) => {
-  const axiosLocal = useAxiosLocal()
+  const axiosLocal = useAxiosSecure()
   const formData = new FormData();
   formData.append("image", photo);
   const res = await axiosLocal.post(
