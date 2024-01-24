@@ -1,8 +1,20 @@
+import Loader from "../../../../components/loader/Loader";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosLocal from "../../../../hooks/useAxiosLocal";
+import { useEffect, useState } from "react";
+import useCurrentUser from "../../../../hooks/useCurrentUser";
 
 const Bookings = () => {
-  return (
-    <div>Bookings</div>
-  )
-}
+  const axiosLocal = useAxiosLocal();
+  const [user, setUser] = useState(null);
 
-export default Bookings
+  useCurrentUser().then((res) => setUser(res));
+
+  useEffect(() => {
+    axiosLocal.get(`/bookingss`, user);
+  }, []);
+
+  return <div>dfsdfsdf</div>;
+};
+
+export default Bookings;

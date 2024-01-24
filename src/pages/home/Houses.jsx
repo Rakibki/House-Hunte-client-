@@ -41,7 +41,7 @@ const Houses = () => {
           modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
-          {houses.map((houseData, index) => (
+          {houses?.map((houseData, index) => (
             <SwiperSlide key={index}>
               <House houseData={houseData} />
             </SwiperSlide>

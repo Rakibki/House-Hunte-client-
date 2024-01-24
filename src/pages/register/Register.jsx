@@ -101,10 +101,10 @@ const Register = () => {
               REGISTER NOW
             </button>
           </div>
-          <h1 className="font-Poppins text-white text-center">
+          <h1 className="font-Poppins text-base text-white text-center">
             New here?{" "}
-            <Link className="hover:underline font-semibold" to={"/register"}>
-              Create a New Account
+            <Link className="hover:underline font-semibold" to={"/login"}>
+              Login Here
             </Link>
           </h1>
         </form>

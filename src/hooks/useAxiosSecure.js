@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:4001",
+  // baseURL: "https://dggfgfgfdggdfgdfgdfg-euasghvbm-rakibs-projects-ab620a78.vercel.app",
+  baseURL: "https://dggfgfgfdggdfgdfgdfg.vercel.app",
 });
 
 const useAxiosSecure = () => {

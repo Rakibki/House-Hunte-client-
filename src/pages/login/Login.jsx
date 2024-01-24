@@ -43,7 +43,7 @@ const Login = () => {
 
           <div className="mt-3 mb-4">
             <p className="font-Poppins mb-2 font-medium text-red-700">
-              this ih my error
+              {/* this ih my error */}
             </p>
             <button
               type="submit"
@@ -52,7 +52,7 @@ const Login = () => {
               LOGIN NOW
             </button>
           </div>
-          <h1 className="font-Poppins text-white text-center">
+          <h1 className="font-Poppins text-base text-white text-center">
             New here?{" "}
             <Link className="hover:underline font-semibold" to={"/register"}>
               Create a New Account

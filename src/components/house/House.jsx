@@ -7,8 +7,8 @@ const House = ({ houseData }) => {
   const [user, setUser] = useState(null);
   const axiosLocal = useAxiosLocal();
 
-  const handleBook = async (id) => {
-    const bookInfo = {houseId: id, name: user?.name, email:user?.email}
+  const handleBook = async (house) => {
+    const bookInfo = {houseId: house?._id, name: user?.name, email:user?.email, ownweEmail: house?.host?.email}
     const res = await axiosLocal.post("/bookings", bookInfo)
     console.log(res)
   };
@@ -29,7 +29,7 @@ const House = ({ houseData }) => {
           </Link>
 
           <button
-            onClick={() => handleBook(houseData?._id)}
+            onClick={() => handleBook(houseData)}
             className="btn btn-primary"
           >
             Book

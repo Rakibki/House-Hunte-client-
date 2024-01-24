@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosLocal from "./useAxiosLocal";
-import Loader from "../components/loader/Loader";
 
 const useCurrentUser = async () => {
   const axiosLocal = useAxiosLocal();
